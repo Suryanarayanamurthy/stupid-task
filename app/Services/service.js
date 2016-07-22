@@ -5,7 +5,7 @@ angular.module('myApp.services', [])
 
 
 
-.factory('serviceId', ['$http',function($http,$q) {
+.factory('serviceId', ['$http','$q',function($http,$q) {
 
 	this.foobar = "foobar in service";
 	console.log(this.foobar);
@@ -20,7 +20,7 @@ angular.module('myApp.services', [])
     /*Parameter: {top: 'Eva', left:  'write mail to Eva'}*/
 };
              $http(req).then(function mySucces(response) {
-        console.log(response.data);
+        deff.resolve(response);
     }, function myError(response) {
         console.log(response.statusText);
     });

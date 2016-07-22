@@ -12,7 +12,16 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', function($scope,serviceId) {
 
 	//$scope.left = {};
-	console.log(serviceId.foobar);
-	$scope.content = serviceId.foobar;
+	$scope.content = "";
+	$scope.clickedItem = function(clickedItem){
+		var data ={
+			top:"Eva",
+			left: clickedItem
+		};
+		serviceId.getContent(data).then(function(responseData){
+			$scope.content = responseData;
+		});
+	};
+
 
 });
