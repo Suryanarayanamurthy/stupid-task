@@ -20,11 +20,11 @@ angular.module('myApp.services', [])
     /*Parameter: {top: 'Eva', left:  'write mail to Eva'}*/
 };
              $http(req).then(function mySucces(response) {
-        deff.resolve(response);
+        deff.resolve(response.data.content);
     }, function myError(response) {
         console.log(response.statusText);
     });
-return deff;
+return deff.promise;
     };
 
 /*	GET /api/contexts HTTP/1.1
