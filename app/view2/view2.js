@@ -9,6 +9,18 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', [function() {
+.controller('View2Ctrl', function($scope,serviceId) {
 
-}]);
+	//$scope.left = {};
+	$scope.content = "";
+	$scope.clickedItem = function(clickedItem){
+		var data ={
+			top:"Bob",
+			left: clickedItem
+		};
+		serviceId.getContent(data).then(function(responseData){
+			$scope.content = responseData;
+		});
+	};
+
+});

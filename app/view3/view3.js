@@ -9,6 +9,17 @@ angular.module('myApp.view3', ['ngRoute'])
   });
 }])
 
-.controller('View3Ctrl', [function() {
+.controller('View3Ctrl', function($scope,serviceId) {
+	//$scope.left = {};
+	$scope.content = "";
+	$scope.clickedItem = function(clickedItem){
+		var data ={
+			top:"Gui",
+			left: clickedItem
+		};
+		serviceId.getContent(data).then(function(responseData){
+			$scope.content = responseData;
+		});
+	};
 
-}]);
+});
